@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logoname">
+        <h1>QuizApp</h1>
+      </div>
+      <div class="install">
+        <button><i class="fa-solid fa-cloud-arrow-down"></i>Install App</button>
+      </div>
+    </header>
+    <div class="container" id="container">
+      <div class="logo">
+        <img src="mind.svg" alt="mind" />
+      </div>
+      <div class="content">
+        <h1>The Ultimate Trivia Quiz</h1>
+        <hr />
+        <form id="form">
+          <select name="category" id="category">
+            <option value="">SELECT QUIZ CATEGORY</option>
+            <option value="" selected>Any Category</option>
+            <option value="9">General Knowledge</option>
+            <option value="10">Entertainment: Books</option>
+            <option value="11">Entertainment: Films</option>
+            <option value="12">Entertainment: Music</option>
+          </select>
+
+          <select name="quesno" id="quesno">
+            <option value="">SELECT NO. OF QUESTIONS</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5" selected>5</option>
+          </select>
+
+          <select name="difficulty" id="difficulty">
+            <option value="">SELECT DIFFICULTY LEVEL</option>
+            <option value="" selected>Any Difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+
+          <select name="type" id="type">
+            <option value="">SELECT QUESTIONS TYPE</option>
+            <option value="" selected>Any Type</option>
+            <option value="multiple">Multiple Choice</option>
+            <option value="boolean">True/ False</option>
+          </select>
+
+          <div class="time">
+            <select name="hour" id="hour">
+              <option value="">SELECT HOURS</option>
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+            <select name="minute" id="minute">
+              <option value="">SELECT MINUTES</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+
+            <select name="second" id="second">
+              <option value="">SELECT SECONDS</option>
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <hr />
+          <button id="sub"><i class="fa-solid fa-play"></i>Play Now</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="quiz" id="quiz">
+      <div class="que">
+        <div class="qu">
+          <h1 id="numbe">
+            <!-- <i class="fa-solid fa-circle-info"></i> Question No.
+            <span id="qun"></span> 1 of <span id="qtotal"></span> -->
+          </h1>
+        </div>
+        <div class="timer">
+          <div id="h"></div>
+          <div id="m"></div>
+          <div id="s"></div>
+        </div>
+      </div>
+
+      <div class="quest">
+        <p id="questions"></p>
+      </div>
+
+      <p class="note">Please choose one of the following answers:</p>
+      <hr />
+      <ul id="quiz-options"></ul>
+      <hr />
+      <button type="button" class="btn btn-primary" id="next" disabled>
+        Next <i class="fa-solid fa-angle-right"></i>
+      </button>
+    </div>
+
+    <div class="result" id="result">
+      <div class="heading">
+        <div class="state">
+          <p>State</p>
+        </div>
+        <div class="qna">
+          <p>QNA</p>
+        </div>
+      </div>
+
+      <div class="result-first">
+        <div class="item">
+          <p id="fail-pass"></p>
+        </div>
+
+        <div class="item">
+          <p id="grad"></p>
+        </div>
+
+        <div class="item">
+          <p id="total-ques"></p>
+        </div>
+
+        <div class="item correct-ans">
+          <p id="correct-ans"></p>
+        </div>
+
+        <div class="item">
+          <p id="your-score"></p>
+        </div>
+
+        <div class="item">
+          <p id="passing-score"></p>
+        </div>
+
+        <div class="btns">
+          <button id="again">Play Again</button>
+          <button id="home">Back To Home</button>
+        </div>
+      </div>
+    </div>
+
+    <p id="date"></p>
+    <p id="time"></p>
+    <p id="demo"></p>
+    <script src="main.js"></script>
+  </body>
+</html>
